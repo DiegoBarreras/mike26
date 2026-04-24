@@ -1,24 +1,25 @@
-let num1 = 0;
-let num2 = 0;
+document.getElementById('btnGenerar').addEventListener('click', () => {
+    const contenedor = document.getElementById('contenedor-tablas');
+    const limite = parseInt(document.getElementById('numUsuario').value);
 
-function calc() {
-    num1 = Number(document.getElementById('num1').value);
-    num2 = Number(document.getElementById('num2').value);
-
-    function imc() {
-        return num1 / (num2 ** 2);
+    if (isNaN(limite) || limite <= 0) {
+        alert("Por favor, ingresa un número positivo y entero.");
+        return;
     }
 
-    function grado() {
-        let valor = imc();
-        if (valor < 18.5) return "Bajo peso";
-        else if (valor < 25) return "Peso normal";
-        else if (valor < 30) return "Sobrepeso";
-        else if (valor < 35) return "Obesidad grado 1";
-        else if (valor < 40) return "Obesidad grado 2";
-        else return "Obesidad grado 3";
-    }
+    contenedor.innerHTML = '';
 
-    document.write(`IMC: ${imc().toFixed(2)} <br>`);
-    document.write(`Grado: ${grado()} <br>`);
-}
+    for (let i = 1; i <= limite; i++) {
+        const div = document.createElement('div');
+        div.className = 'tabla-card';
+        
+        let html = `<h3>Tabla del ${i}</h3>`;
+
+        for (let j = 1; j <= 10; j++) {
+            html += `<p>${i} x ${j} = <strong>${i * j}</strong></p>`;
+        }
+        
+        div.innerHTML = html;
+        contenedor.appendChild(div);
+    }
+});

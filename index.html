@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23</title>
+    <title>Tablas de Multiplicar Dinámicas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Calculadora de IMC</h1>
-    <form action="">
-        <input type="number" name="num1" id="num1">
-        <label for="num1">Peso (kg)</label>
-        <input type="number" name="num2" id="num2">
-        <label for="num2">Altura (m)</label>
-        <button type="button" onclick="calc()">Calcular</button>
-    </form>
+    <div class="container">
+        <h1>Generador de Tablas</h1>
+
+        <div class="controles">
+            <label for="numUsuario">¿Hasta qué número quieres generar?</label>
+            <input type="number" id="numUsuario" min="1" placeholder="Ej. 12">
+            <button id="btnGenerar">Generar</button>
+        </div>
+
+        <div id="contenedor-tablas" class="grid"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="./script.js"></script>
+
 </html>
